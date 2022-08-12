@@ -7,6 +7,11 @@
     <groupId>com.lucas</groupId>
     <artifactId>lagou-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>lagou-service-common</module>
+        <module>lagou-service-autodeliver</module>
+        <module>lagou-service-resume</module>
+    </modules>
     <!--用构建springCloud的父工程-->
     <!--打包方式-->
     <packaging>pom</packaging>
@@ -19,34 +24,43 @@
         <version>2.1.6.RELEASE</version>
     </parent>
 
-    <!--依赖-->
+    <!--web依赖-->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--日志依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
+        <!--测试依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+        <!--lombok工具-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
+        <!--接口记录依赖，用于监控和管理springboot 应用-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!--热部署-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
         </dependency>
     </dependencies>
     <!--构建工具-->
@@ -61,6 +75,10 @@
                     <target>11</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
